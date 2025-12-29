@@ -1,23 +1,23 @@
 ---
-title: DNS resolution
-pcx_content_type: reference
-sidebar:
-  order: 11
-head:
-  - tag: title
-    content: DNS resolution in partial zones
+标题：DNS解析
+pcx_content_type：参考
+侧栏：
+排序：11
+头部：
+- 标签：标题
+内容：部分区域的DNS解析
 
 ---
 
-import { GlossaryTooltip } from "~/components"
+import { 词汇提示 } from “~ / components”
 
-When you have a <GlossaryTooltip term="partial setup" link="/dns/zone-setups/partial-setup/">partial zone</GlossaryTooltip>, Cloudflare handles DNS records a bit differently from full zones in order to internally resolve the origin server where proxied HTTP requests are sent to.
+当您拥有<GlossaryTooltip term="partial setup" link="/dns/zone-setups/partial-setup/">部分区域</GlossaryTooltip>时，Cloudflare 对 DNS 记录的处理方式与完整区域略有不同，以便在内部解析代理 HTTP 请求所发送到的源服务器。
 
-## Records within the same zone
+## 同一区域内的记录
 
-When you [create a new DNS record](/dns/manage-dns-records/how-to/create-dns-records/#create-dns-records) in a partial zone, Cloudflare automatically checks whether any of your CNAME records point to existing A, AAAA, or CNAME records within the same zone.
+当您在部分区域中[创建新的 DNS 记录](/dns/manage-dns-records/how-to/create-dns-records/#create-dns-records)时，Cloudflare 会自动检查您的任何 CNAME 记录是否指向同一区域内的现有 A、AAAA 或 CNAME 记录。
 
-For example, Cloudflare would show a warning if you had the following records in your partial zone:
+例如，如果您部分区域中存在以下记录，Cloudflare 将显示警告：
 
 ```txt
 sub1.partialzone.com   CNAME   sub2.partialzone.com
